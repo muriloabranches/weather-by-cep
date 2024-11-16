@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"math"
 	"net/http"
 	"net/url"
 	"os"
@@ -60,8 +61,8 @@ func handleCEPRequest(w http.ResponseWriter, r *http.Request) {
 		TempK float64 `json:"temp_K"`
 	}
 	response.TempC = temperature
-	response.TempF = celsiusToFahrenheit(temperature)
-	response.TempK = celsiusToKelvin(temperature)
+	response.TempF = round(celsiusToFahrenheit(temperature))
+	response.TempK = round(celsiusToKelvin(temperature))
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
@@ -81,6 +82,10 @@ func celsiusToFahrenheit(celsius float64) float64 {
 
 func celsiusToKelvin(celsius float64) float64 {
 	return celsius + 273
+}
+
+func round(value float64) float64 {
+	return math.Round(value*10) / 10
 }
 
 func fetchLocation(cep string) (string, error) {

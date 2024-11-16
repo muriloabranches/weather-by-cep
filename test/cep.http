@@ -1,0 +1,8 @@
+### Valid zipcode
+GET http://localhost:8000/cep/01310930 HTTP/1.1
+
+### Invalid zipcode
+GET http://localhost:8000/cep/0131093 HTTP/1.1
+
+### Can not find zipcode
+GET http://localhost:8000/cep/00000000 HTTP/1.1
