@@ -9,5 +9,4 @@ FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 WORKDIR /app
 COPY --from=builder /app/weather-by-cep .
-COPY .env .env
 ENTRYPOINT ["./weather-by-cep"]

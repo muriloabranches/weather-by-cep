@@ -10,24 +10,14 @@ import (
 	"os"
 	"regexp"
 	"strings"
-
-	"github.com/joho/godotenv"
 )
 
 func main() {
 	log.Println("Starting server...")
 
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
 	http.HandleFunc("/cep/", handleCEPRequest)
 
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
+	port := "8080"
 	log.Printf("Server running on port %s", port)
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
 		log.Fatal(err)

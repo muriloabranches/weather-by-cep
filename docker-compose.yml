@@ -7,5 +7,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    env_file:
-      - .env
+    environment:
+      - WEATHERAPI_KEY={YOUR_WEATHERAPI_KEY}
