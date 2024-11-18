@@ -93,4 +93,3 @@ Você pode usar o arquivo [cep.http](./test/cep.http) para testar os endpoints d
 - `Dockerfile`: Dockerfile para construir a imagem do servidor.
 - `docker-compose.yml`: Arquivo Docker Compose para configurar e executar o contêiner.
 - `cep.http`: Arquivo HTTP para testar os endpoints.
-  
